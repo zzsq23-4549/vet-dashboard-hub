@@ -12,32 +12,26 @@ const Header = ({ className }: HeaderProps) => {
 
   return (
     <header className={cn("py-4 px-6 flex items-center justify-between animate-fade-in", className)}>
-      {isMobile && (
-        <div className="flex items-center gap-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-primary"
-          >
-            <path d="M18 2a3 3 0 0 0-3 3v14a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
-            <path d="M6 2a3 3 0 0 0-3 3v14a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
-            <path d="M6 18H4" />
-            <path d="M18 18h-2" />
-            <path d="M12 19a4 4 0 0 0 0-8 4 4 0 0 0-8 8" />
-            <path d="M12 19a4 4 0 0 1 0-8 4 4 0 0 1 8 8" />
-          </svg>
-          <h1 className="text-xl font-display font-bold">VetDashboard</h1>
-        </div>
-      )}
+      <div className="flex items-center gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="text-primary"
+        >
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+        </svg>
+        <h1 className="text-xl font-display font-bold">بيطري+</h1>
+      </div>
 
-      <div className="ml-auto flex items-center gap-4">
+      <div className="flex items-center gap-4">
         <Button
           variant="ghost"
           size="icon"
@@ -60,29 +54,27 @@ const Header = ({ className }: HeaderProps) => {
           <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-primary"></span>
         </Button>
 
-        <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="text-primary"
-            >
-              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-              <circle cx="12" cy="7" r="4" />
-            </svg>
-          </div>
-          <div className="hidden sm:block">
-            <p className="text-sm font-medium">Dr. Sarah Miller</p>
-            <p className="text-xs text-muted-foreground">Veterinarian</p>
-          </div>
-        </div>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="hover:bg-secondary/80"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+        </Button>
       </div>
     </header>
   );

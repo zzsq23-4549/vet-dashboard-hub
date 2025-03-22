@@ -1,12 +1,12 @@
 
-import DashboardContent from "@/components/dashboard/DashboardContent";
-import DashboardLayout from "@/components/layout/DashboardLayout";
+import MobileLayout from "@/components/layout/MobileLayout";
+import Dashboard from "@/components/dashboard/Dashboard";
 
 const Index = () => {
   return (
-    <DashboardLayout>
-      <DashboardContent />
-    </DashboardLayout>
+    <MobileLayout>
+      <Dashboard />
+    </MobileLayout>
   );
 };
 

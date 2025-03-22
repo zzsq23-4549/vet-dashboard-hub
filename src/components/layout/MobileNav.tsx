@@ -33,7 +33,7 @@ const MobileNav = () => {
             <rect width="7" height="9" x="14" y="12" rx="1" />
             <rect width="7" height="5" x="3" y="16" rx="1" />
           </svg>
-          <span className="text-xs mt-1">Dashboard</span>
+          <span className="text-xs mt-1">الرئيسية</span>
         </button>
 
         <button
@@ -58,13 +58,13 @@ const MobileNav = () => {
             <line x1="8" x2="8" y1="2" y2="6" />
             <line x1="3" x2="21" y1="10" y2="10" />
           </svg>
-          <span className="text-xs mt-1">Appointments</span>
+          <span className="text-xs mt-1">المواعيد</span>
         </button>
 
         <button
-          onClick={() => handleClick("patients")}
+          onClick={() => handleClick("cases")}
           className={`flex flex-col items-center p-2 ${
-            activeItem === "patients" ? "text-primary" : "text-muted-foreground"
+            activeItem === "cases" ? "text-primary" : "text-muted-foreground"
           }`}
         >
           <svg
@@ -78,18 +78,17 @@ const MobileNav = () => {
             strokeLinecap="round"
             strokeLinejoin="round"
           >
-            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-            <circle cx="9" cy="7" r="4" />
-            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            <path d="M15.5 2H8.6c-.4 0-.8.2-1.1.5-.3.3-.5.7-.5 1.1v12.8c0 .4.2.8.5 1.1.3.3.7.5 1.1.5h9.8c.4 0 .8-.2 1.1-.5.3-.3.5-.7.5-1.1V6.5L15.5 2z" />
+            <path d="M3 7.6v12.8c0 .4.2.8.5 1.1.3.3.7.5 1.1.5h9.8" />
+            <path d="M15 2v5h5" />
           </svg>
-          <span className="text-xs mt-1">Patients</span>
+          <span className="text-xs mt-1">الحالات</span>
         </button>
 
         <button
-          onClick={() => handleClick("billing")}
+          onClick={() => handleClick("emergency")}
           className={`flex flex-col items-center p-2 ${
-            activeItem === "billing" ? "text-primary" : "text-muted-foreground"
+            activeItem === "emergency" ? "text-primary" : "text-muted-foreground"
           }`}
         >
           <svg
@@ -103,11 +102,35 @@ const MobileNav = () => {
             strokeLinecap="round"
             strokeLinejoin="round"
           >
-            <path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-7h-2c0-1-.5-1.5-1-2z" />
-            <path d="M2 9v1c0 1.1.9 2 2 2h1" />
-            <path d="M16 11h0" />
+            <path d="M8.7 3A6 6 0 0 0 2 8.7V15a6 6 0 0 0 6 6h8a6 6 0 0 0 6-6v-1.3A6 6 0 0 0 15.3 8H8.7A6 6 0 0 1 3 3Z" />
+            <circle cx="7" cy="12" r="1" />
+            <circle cx="17" cy="12" r="1" />
+            <path d="M12 17v.01" />
           </svg>
-          <span className="text-xs mt-1">Billing</span>
+          <span className="text-xs mt-1">طوارئ</span>
+        </button>
+
+        <button
+          onClick={() => handleClick("profile")}
+          className={`flex flex-col items-center p-2 ${
+            activeItem === "profile" ? "text-primary" : "text-muted-foreground"
+          }`}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          <span className="text-xs mt-1">حسابي</span>
         </button>
       </div>
     </div>
