@@ -21,13 +21,17 @@ const SidebarItem = ({
     <button
       onClick={onClick}
       className={cn(
-        "sidebar-link",
+        "sidebar-link flex items-center gap-3 w-full px-3 py-2 text-sm font-medium rounded-md transition-all",
+        isActive 
+          ? "bg-primary/10 text-primary font-medium animate-glow-pulse" 
+          : "text-muted-foreground hover:bg-muted hover:text-foreground",
+        "mobile-nav-item",
         isActive && "active",
         className
       )}
     >
-      {icon}
-      <span>{label}</span>
+      <span className="flex-shrink-0">{icon}</span>
+      <span className="truncate">{label}</span>
     </button>
   );
 };
