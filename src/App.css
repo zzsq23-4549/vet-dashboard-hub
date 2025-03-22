@@ -1,4 +1,3 @@
-
 #root {
   width: 100%;
   margin: 0 auto;
@@ -24,28 +23,26 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Animations */
-@keyframes pulse-subtle {
+/* Enhanced Animations */
+@keyframes pulse-soft {
   0%, 100% {
-    transform: scale(1);
     opacity: 1;
   }
   50% {
-    transform: scale(1.05);
-    opacity: 0.9;
+    opacity: 0.6;
   }
 }
 
-@keyframes float {
+@keyframes float-subtle {
   0%, 100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-6px);
   }
 }
 
-@keyframes fade-slide-up {
+@keyframes slide-up-fade {
   0% {
     opacity: 0;
     transform: translateY(20px);
@@ -56,76 +53,148 @@
   }
 }
 
-@keyframes fade-slide-in {
+@keyframes scale-bounce {
   0% {
-    opacity: 0;
-    transform: translateX(-20px);
+    transform: scale(0.9);
+  }
+  70% {
+    transform: scale(1.05);
   }
   100% {
-    opacity: 1;
-    transform: translateX(0);
+    transform: scale(1);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(34, 197, 94, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
   }
 }
 
 /* Apply animations */
-.animate-pulse-subtle {
-  animation: pulse-subtle 3s ease-in-out infinite;
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
 }
 
-.animate-float {
-  animation: float 4s ease-in-out infinite;
+.animate-float-subtle {
+  animation: float-subtle 3s ease-in-out infinite;
 }
 
-.animate-fade-slide-up {
-  animation: fade-slide-up 0.6s ease-out forwards;
+.animate-slide-up-fade {
+  animation: slide-up-fade 0.5s ease-out forwards;
 }
 
-.animate-fade-slide-in {
-  animation: fade-slide-in 0.6s ease-out forwards;
+.animate-scale-bounce {
+  animation: scale-bounce 0.5s ease-out forwards;
 }
 
-/* Staggered animations */
-.stagger-1 {
-  animation-delay: 100ms;
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
 }
 
-.stagger-2 {
-  animation-delay: 200ms;
-}
-
-.stagger-3 {
-  animation-delay: 300ms;
-}
-
-.stagger-4 {
-  animation-delay: 400ms;
-}
-
-/* Transition for hover effects */
-.hover-lift {
+/* Animated components */
+.card-animated {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+.card-animated:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
-/* Page transitions */
-.page-transition-enter {
+.btn-animated {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-animated::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease;
+}
+
+.btn-animated:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Staggered animation delay utilities */
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Page transition animations */
+.page-enter {
   opacity: 0;
+  transform: translateY(20px);
 }
 
-.page-transition-enter-active {
+.page-enter-active {
   opacity: 1;
+  transform: translateY(0);
   transition: opacity 400ms, transform 400ms;
 }
 
-.page-transition-exit {
+.page-exit {
   opacity: 1;
 }
 
-.page-transition-exit-active {
+.page-exit-active {
   opacity: 0;
-  transition: opacity 400ms, transform 400ms;
+  transition: opacity 300ms;
+}
+
+/* Enhanced glass effect */
+.glass-effect-animated {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.glass-effect-animated:hover {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+/* Enhanced mobile nav animation */
+.mobile-nav-item {
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-item.active {
+  transform: translateY(-5px);
+}
+
+.mobile-nav-item:not(.active):hover {
+  transform: translateY(-3px);
 }

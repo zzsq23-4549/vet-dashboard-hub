@@ -13,8 +13,10 @@ const MobileNav = () => {
       <div className="flex justify-between items-center">
         <button
           onClick={() => handleClick("dashboard")}
-          className={`flex flex-col items-center p-2 ${
-            activeItem === "dashboard" ? "text-primary" : "text-muted-foreground"
+          className={`flex flex-col items-center p-2 mobile-nav-item transition-all duration-300 ${
+            activeItem === "dashboard" 
+              ? "text-primary transform scale-105" 
+              : "text-muted-foreground hover:text-foreground"
           }`}
         >
           <svg
@@ -27,6 +29,7 @@ const MobileNav = () => {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
+            className={activeItem === "dashboard" ? "animate-pulse-soft" : ""}
           >
             <rect width="7" height="9" x="3" y="3" rx="1" />
             <rect width="7" height="5" x="14" y="3" rx="1" />
@@ -38,8 +41,10 @@ const MobileNav = () => {
 
         <button
           onClick={() => handleClick("appointments")}
-          className={`flex flex-col items-center p-2 ${
-            activeItem === "appointments" ? "text-primary" : "text-muted-foreground"
+          className={`flex flex-col items-center p-2 mobile-nav-item transition-all duration-300 ${
+            activeItem === "appointments" 
+              ? "text-primary transform scale-105" 
+              : "text-muted-foreground hover:text-foreground"
           }`}
         >
           <svg
@@ -52,6 +57,7 @@ const MobileNav = () => {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
+            className={activeItem === "appointments" ? "animate-pulse-soft" : ""}
           >
             <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
             <line x1="16" x2="16" y1="2" y2="6" />
@@ -63,8 +69,10 @@ const MobileNav = () => {
 
         <button
           onClick={() => handleClick("cases")}
-          className={`flex flex-col items-center p-2 ${
-            activeItem === "cases" ? "text-primary" : "text-muted-foreground"
+          className={`flex flex-col items-center p-2 mobile-nav-item transition-all duration-300 ${
+            activeItem === "cases" 
+              ? "text-primary transform scale-105" 
+              : "text-muted-foreground hover:text-foreground"
           }`}
         >
           <svg
@@ -77,6 +85,7 @@ const MobileNav = () => {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
+            className={activeItem === "cases" ? "animate-pulse-soft" : ""}
           >
             <path d="M15.5 2H8.6c-.4 0-.8.2-1.1.5-.3.3-.5.7-.5 1.1v12.8c0 .4.2.8.5 1.1.3.3.7.5 1.1.5h9.8c.4 0 .8-.2 1.1-.5.3-.3.5-.7.5-1.1V6.5L15.5 2z" />
             <path d="M3 7.6v12.8c0 .4.2.8.5 1.1.3.3.7.5 1.1.5h9.8" />
@@ -87,8 +96,10 @@ const MobileNav = () => {
 
         <button
           onClick={() => handleClick("emergency")}
-          className={`flex flex-col items-center p-2 ${
-            activeItem === "emergency" ? "text-primary" : "text-muted-foreground"
+          className={`flex flex-col items-center p-2 mobile-nav-item transition-all duration-300 ${
+            activeItem === "emergency" 
+              ? "text-primary transform scale-105" 
+              : "text-muted-foreground hover:text-foreground"
           }`}
         >
           <svg
@@ -101,6 +112,7 @@ const MobileNav = () => {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
+            className={activeItem === "emergency" ? "animate-pulse-soft" : ""}
           >
             <path d="M8.7 3A6 6 0 0 0 2 8.7V15a6 6 0 0 0 6 6h8a6 6 0 0 0 6-6v-1.3A6 6 0 0 0 15.3 8H8.7A6 6 0 0 1 3 3Z" />
             <circle cx="7" cy="12" r="1" />
@@ -112,8 +124,10 @@ const MobileNav = () => {
 
         <button
           onClick={() => handleClick("profile")}
-          className={`flex flex-col items-center p-2 ${
-            activeItem === "profile" ? "text-primary" : "text-muted-foreground"
+          className={`flex flex-col items-center p-2 mobile-nav-item transition-all duration-300 ${
+            activeItem === "profile" 
+              ? "text-primary transform scale-105" 
+              : "text-muted-foreground hover:text-foreground"
           }`}
         >
           <svg
@@ -126,6 +140,7 @@ const MobileNav = () => {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
+            className={activeItem === "profile" ? "animate-pulse-soft" : ""}
           >
             <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
             <circle cx="12" cy="7" r="4" />
