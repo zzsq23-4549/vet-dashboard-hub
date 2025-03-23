@@ -1,12 +1,21 @@
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Syringe, Calendar, Heart, ClipboardList, Search, Plus } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import DashboardLayout from "@/components/layout/DashboardLayout";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { SurgeryForm } from "@/components/forms/SurgeryForm";
+import { MedicationForm } from "@/components/forms/MedicationForm";
+import { AppointmentForm } from "@/components/forms/AppointmentForm";
+import { AnimalForm } from "@/components/forms/AnimalForm";
+import { useState } from "react";
 
 const LesGestions = () => {
+  const [openDialog, setOpenDialog] = useState<string | null>(null);
+  
+  const closeDialog = () => setOpenDialog(null);
+  
   return (
     <DashboardLayout>
       <div className="animate-fade-in">
@@ -32,7 +41,6 @@ const LesGestions = () => {
             </TabsTrigger>
           </TabsList>
           
-          {/* Surgeries Management */}
           <TabsContent value="surgeries" className="space-y-6">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-semibold">Gestion des Chirurgies</h2>
@@ -41,10 +49,25 @@ const LesGestions = () => {
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
                   <Input placeholder="Rechercher..." className="pl-10 w-[250px]" />
                 </div>
-                <Button className="btn-animated">
-                  <Plus className="h-4 w-4 mr-2" />
-                  Nouvelle Chirurgie
-                </Button>
+                <Dialog open={openDialog === 'surgery'} onOpenChange={(open) => open ? setOpenDialog('surgery') : closeDialog()}>
+                  <DialogTrigger asChild>
+                    <Button className="btn-animated animate-scale-bounce">
+                      <Plus className="h-4 w-4 mr-2" />
+                      Nouvelle Chirurgie
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-md">
+                    <DialogHeader>
+                      <DialogTitle>Ajouter une nouvelle chirurgie</DialogTitle>
+                      <DialogDescription>
+                        Remplissez le formulaire ci-dessous pour ajouter une nouvelle chirurgie.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="py-4">
+                      <SurgeryForm onSuccess={closeDialog} />
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </div>
             </div>
             
@@ -78,7 +101,6 @@ const LesGestions = () => {
             </div>
           </TabsContent>
           
-          {/* Medications Management */}
           <TabsContent value="medications" className="space-y-6">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-semibold">Gestion des Médicaments</h2>
@@ -87,10 +109,25 @@ const LesGestions = () => {
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
                   <Input placeholder="Rechercher..." className="pl-10 w-[250px]" />
                 </div>
-                <Button className="btn-animated">
-                  <Plus className="h-4 w-4 mr-2" />
-                  Nouveau Médicament
-                </Button>
+                <Dialog open={openDialog === 'medication'} onOpenChange={(open) => open ? setOpenDialog('medication') : closeDialog()}>
+                  <DialogTrigger asChild>
+                    <Button className="btn-animated animate-scale-bounce">
+                      <Plus className="h-4 w-4 mr-2" />
+                      Nouveau Médicament
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-md">
+                    <DialogHeader>
+                      <DialogTitle>Ajouter un nouveau médicament</DialogTitle>
+                      <DialogDescription>
+                        Remplissez le formulaire ci-dessous pour ajouter un nouveau médicament.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="py-4">
+                      <MedicationForm onSuccess={closeDialog} />
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </div>
             </div>
             
@@ -124,7 +161,6 @@ const LesGestions = () => {
             </div>
           </TabsContent>
           
-          {/* Appointments Management */}
           <TabsContent value="appointments" className="space-y-6">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-semibold">Gestion des Rendez-vous</h2>
@@ -133,10 +169,25 @@ const LesGestions = () => {
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
                   <Input placeholder="Rechercher..." className="pl-10 w-[250px]" />
                 </div>
-                <Button className="btn-animated">
-                  <Plus className="h-4 w-4 mr-2" />
-                  Nouveau Rendez-vous
-                </Button>
+                <Dialog open={openDialog === 'appointment'} onOpenChange={(open) => open ? setOpenDialog('appointment') : closeDialog()}>
+                  <DialogTrigger asChild>
+                    <Button className="btn-animated animate-scale-bounce">
+                      <Plus className="h-4 w-4 mr-2" />
+                      Nouveau Rendez-vous
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-md">
+                    <DialogHeader>
+                      <DialogTitle>Ajouter un nouveau rendez-vous</DialogTitle>
+                      <DialogDescription>
+                        Remplissez le formulaire ci-dessous pour ajouter un nouveau rendez-vous.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="py-4">
+                      <AppointmentForm onSuccess={closeDialog} />
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </div>
             </div>
             
@@ -168,7 +219,6 @@ const LesGestions = () => {
             </div>
           </TabsContent>
           
-          {/* Animals Management */}
           <TabsContent value="animals" className="space-y-6">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-semibold">Gestion des Animaux</h2>
@@ -177,10 +227,25 @@ const LesGestions = () => {
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
                   <Input placeholder="Rechercher..." className="pl-10 w-[250px]" />
                 </div>
-                <Button className="btn-animated">
-                  <Plus className="h-4 w-4 mr-2" />
-                  Nouvel Animal
-                </Button>
+                <Dialog open={openDialog === 'animal'} onOpenChange={(open) => open ? setOpenDialog('animal') : closeDialog()}>
+                  <DialogTrigger asChild>
+                    <Button className="btn-animated animate-scale-bounce">
+                      <Plus className="h-4 w-4 mr-2" />
+                      Nouvel Animal
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-md">
+                    <DialogHeader>
+                      <DialogTitle>Ajouter un nouvel animal</DialogTitle>
+                      <DialogDescription>
+                        Remplissez le formulaire ci-dessous pour ajouter un nouvel animal.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="py-4">
+                      <AnimalForm onSuccess={closeDialog} />
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </div>
             </div>
             
